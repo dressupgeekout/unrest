@@ -8,7 +8,7 @@ FileData::FileData(const boost::filesystem::path &filepath)
 {
 	if (boost::filesystem::exists(filepath))
 	{
-		name = boost::filesystem::basename(filepath);
+		name = filepath.stem().string();
 		path = filepath.string();
 
 #if defined(__WIN32__) || defined(__APPLE__)
