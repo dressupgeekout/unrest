@@ -154,6 +154,11 @@ LDFLAGS+=		$(BOOST_LDFLAGS) -lboost_filesystem
 # Extra compiler flags
 CXXFLAGS+=	$(EXTRA_CXXFLAGS)
 
+# Installation options
+DESTDIR?=	# defined
+PREFIX?=	/usr/local
+BINDIR?=	bin
+
 .PHONY: all
 all: $(PROG)
 
@@ -163,6 +168,11 @@ $(PROG): $(OBJS)
 
 .cpp.o:
 	$(CXX) -c $(CXXFLAGS) -o $@ $<
+
+.PHONY: install
+install: $(PROG)
+	install -d $(DESTDIR)$(PREFIX)/$(BINDIR)
+	install -m0755 $(PROG) $(DESTDIR)$(PREFIX)/$(BINDIR)
 
 .PHONY: clean
 clean:
