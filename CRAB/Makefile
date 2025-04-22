@@ -146,8 +146,10 @@ LDFLAGS+=	-lSDL2_mixer
 LDFLAGS+=	-lSDL2_image
 
 # Boost
-CXXFLAGS+=	-I/usr/pkg/include
-LDFLAGS+=	-lboost_filesystem
+BOOST_CXXFLAGS?=	# defined
+BOOST_LDFLAGS?=		# defined
+CXXFLAGS+=		$(BOOST_CXXFLAGS)
+LDFLAGS+=		$(BOOST_LDFLAGS) -lboost_filesystem
 
 # Extra compiler flags
 #CXXFLAGS+=	-g -Wall
