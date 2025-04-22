@@ -26,8 +26,10 @@ bool App::Init()
 	//Load paths for important files
 	gFilePath.Load("res/paths.xml");
 
+#ifdef STEAM
 	//Initialize Steam
 	SteamAPI_Init();
+#endif
 
 	//Load the settings corresponding to the latest version
 	{
@@ -263,7 +265,9 @@ void App::LoadSettings(const std::string &filename)
 
 App :: ~App()
 {
+#ifdef STEAM
 	SteamAPI_Shutdown();
+#endif
 
 	pyrodactyl::image::gImageManager.Quit();
 	pyrodactyl::music::gMusicManager.Quit();

@@ -23,4 +23,6 @@
 
 #include <boost/filesystem.hpp>
 
+#ifdef STEAM
 #include <steam/steam_api.h>
+#endif

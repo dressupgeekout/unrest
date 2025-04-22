@@ -24,10 +24,12 @@ void GameEventStore::AddConv(rapidxml::xml_node<char> *node, unsigned int &index
 void GameEventStore::Load(const std::string &filename)
 {
 	//Request current user stats from Steam
+#ifdef STEAM
 	m_pSteamUserStats = SteamUserStats();
 
 	if (m_pSteamUserStats != nullptr)
 		m_pSteamUserStats->RequestCurrentStats();
+#endif
 
 	XMLDoc conf(filename);
 	if (conf.ready())
@@ -70,6 +72,7 @@ void GameEventStore::Load(const std::string &filename)
 
 void GameEventStore::SetAchievement(const int &id)
 {
+#ifdef STEAM
 	if (m_pSteamUserStats != nullptr)
 	{
 		if (id == 0)
@@ -79,4 +82,5 @@ void GameEventStore::SetAchievement(const int &id)
 
 		m_pSteamUserStats->StoreStats();
 	}
+#endif
 }

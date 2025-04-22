@@ -33,8 +33,10 @@ namespace pyrodactyl
 			//The set of traits for various characters
 			std::vector<pyrodactyl::people::Trait> trait;
 
+#ifdef STEAM
 			// Steam UserStats interface
 			ISteamUserStats *m_pSteamUserStats;
+#endif
 
 			GameEventStore()
 			{
