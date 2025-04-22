@@ -152,7 +152,7 @@ CXXFLAGS+=		$(BOOST_CXXFLAGS)
 LDFLAGS+=		$(BOOST_LDFLAGS) -lboost_filesystem
 
 # Extra compiler flags
-#CXXFLAGS+=	-g -Wall
+CXXFLAGS+=	$(EXTRA_CXXFLAGS)
 
 .PHONY: all
 all: $(PROG)
