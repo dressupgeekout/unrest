@@ -1,5 +1,7 @@
 #pragma once
 
+#include <list>
+
 #include "common_header.h"
 #include "XMLDoc.h"
 #include "loaders.h"
