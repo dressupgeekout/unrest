@@ -1,19 +1,50 @@
-# About
-This is the source code for Unrest, a story based RPG developed by Pyrodactyl Games. 
-Unrest is the third game built using my own homebrew engine named CRAB (which stands for Conversation Roleplaying Allpurpose Brawler).
+# Unrest
 
-I hope this helps someone out there learning to make games, or someone interested in learning how Unrest works.
+This is dressupgeekout's fork of _Unrest_, a story-based RPG developed by
+Pyrodactyl Games, optimized for Unix-like systems.
 
-# How to Compile
+This versions provides a streamlined edition of the
+[original source code](https://github.com/arvindrajayadav/unrest)
+with the following changes:
 
-After cloning the repository, you will need to set a valid Boost source and lib directories in Visual Studio settings. 
-For more information on how to set up Boost, visit https://www.boost.org/
+- A Makefile for straightforward compilation
+- Support for newer versions of Boost
+- No support for macOS or Windows
+- No support for mobile platforms
+- No support for the Steam API
 
-# Running the Game
+As with Pyrodactyl's original source distribution, this repository does not
+come with the game data. Please purchase a copy of _Unrest_ in order to
+actually play the game.
 
-After successfully compiling and building the executable, you will need the game's assets. 
-If you have a copy of the game, navigate to the install directory and:
-1. Copy the "res" folder to the binary location
-2. Copy the various DLL files to the binary location
 
-If you're having any issues with getting the code up and running, or just want to chat about the game, feel free to contact me!
+## How to build
+
+First, make sure you have installed all the dependencies:
+
+- `SDL2`, `SDL2_image`, `SDL2_mixer`, `SDL2_ttf`
+- Boost
+- GNU Make
+
+Now you should be able to build. Make sure to substitute `make` for `gmake`
+in case your OS uses BSD make(1) by default.
+
+```
+cd CRAB
+make
+```
+
+If you think you might need them, you can provide extra C++ compiler flags like
+this:
+
+```
+make EXTRA_CXXFLAGS=-I/usr/pkg/include
+```
+
+Next, you may install the program to the final destination. The usual
+options for modifying the installation directories are available. Here are
+the default values:
+
+```
+make install [PREFIX=/usr/local] [BINDIR=bin] [DESTDIR=/]
+```
