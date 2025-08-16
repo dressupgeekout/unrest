@@ -3,7 +3,7 @@
 This is dressupgeekout's fork of _Unrest_, a story-based RPG developed by
 Pyrodactyl Games, optimized for Unix-like systems.
 
-This versions provides a streamlined edition of the
+This version provides a streamlined edition of the
 [original source code](https://github.com/arvindrajayadav/unrest)
 with the following changes:
 
